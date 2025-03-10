@@ -1,0 +1,39 @@
+window {
+  margin: 0px;
+  border: 1px solid #89dceb; /* Replaced $sky with #89dceb */
+  background-color: #1e1e2e; /* Replaced $base with #1e1e2e */
+}
+
+#input {
+  margin: 5px;
+  border: none;
+  color: #cdd6f4; /* Replaced $text with #cdd6f4 */
+  background-color: #313244; /* Replaced $surface0 with #313244 */
+}
+
+#inner-box {
+  margin: 5px;
+  border: none;
+  background-color: #1e1e2e; /* Replaced $base with #1e1e2e */
+}
+
+#outer-box {
+  margin: 5px;
+  border: none;
+  background-color: #1e1e2e; /* Replaced $base with #1e1e2e */
+}
+
+#scroll {
+  margin: 0px;
+  border: none;
+}
+
+#text {
+  margin: 5px;
+  border: none;
+  color: #cdd6f4; /* Replaced $text with #cdd6f4 */
+}
+
+#entry:selected {
+  background-color: #313244; /* Replaced $surface0 with #313244 */
+}

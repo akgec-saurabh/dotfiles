@@ -1,17 +1,5 @@
 starship init fish | source
-set -U fish_greeting
-
-
 set -x PATH $HOME/bin $PATH
-set -x PATH $HOME/.cargo/bin $PATH
-set -x PATH $HOME/eww/target/release $PATH
-
-# ohmyposh init fish --config ~/.config/fish/theme2.json | source
-# if status is-interactive
-#     # Commands to run in interactive sessions can go here
-    
-# end
-
 
 function yy
 	set tmp (mktemp -t "yazi-cwd.XXXXX")
@@ -21,7 +9,6 @@ function yy
 	end
 	rm -f -- "$tmp"
 end
-
 
 # pnpm
 set -gx PNPM_HOME "/home/saurabh/.local/share/pnpm"
