@@ -1,6 +1,9 @@
 starship init fish | source
 set -x PATH $HOME/bin $PATH
 
+alias ff="fastfetch"
+
+
 function yy
 	set tmp (mktemp -t "yazi-cwd.XXXXX")
 	yazi $argv --cwd-file="$tmp"

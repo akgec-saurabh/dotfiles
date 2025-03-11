@@ -1,0 +1,15 @@
+{
+  "memory": {
+    "interval": 1,
+    "rotate": 270,
+    "format": "{icon}",
+    "format-icons": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
+    "max-length": 10
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "{icon}",
+    "rotate": 270,
+    "format-icons": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"]
+  }
+}

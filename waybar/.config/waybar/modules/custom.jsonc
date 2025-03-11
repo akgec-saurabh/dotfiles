@@ -1,0 +1,36 @@
+{
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󰅸",
+      "none": "󰂜",
+      "dnd-notification": "󰅸",
+      "dnd-none": "󱏨",
+      "inhibited-notification": "󰅸",
+      "inhibited-none": "󰂜",
+      "dnd-inhibited-notification": "󰅸",
+      "dnd-inhibited-none": "󱏨"
+    },
+    "return-type": "json",
+    "exec-if": "which dunstctl",
+    "exec": "echo '{\"text\": \"$(dunstctl count)\"}'",
+    "on-click-right": "dunstctl set-paused toggle",
+    "on-click": "dunstctl close-all",
+    "escape": true
+  },
+  "custom/spotify": {
+    "exec": "mediaplayer.py --player spotify",
+    "format": " {}",
+    "rotate": 0,
+    "return-type": "json",
+    "on-click": "playerctl play-pause --player spotify",
+    "on-click-right": "playerctl next --player spotify",
+    "on-click-middle": "playerctl previous --player spotify",
+    "on-scroll-up": "volumecontrol.sh -p spotify i",
+    "on-scroll-down": "volumecontrol.sh -p spotify d",
+    "max-length": 25,
+    "escape": true,
+    "tooltip": true
+  }
+}

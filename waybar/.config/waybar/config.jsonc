@@ -1,0 +1,19 @@
+{
+  "layer": "top",
+  "position": "top",
+  "mod": "dock",
+  "margin-left": 10,
+  "margin-right": 10,
+  "margin-top": 7,
+  "margin-bottom": 0,
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "reload_style_on_change": true,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["keywork", "backlight", "battery", "clock"],
+
+  "include": ["~/.config/waybar/modules/*.jsonc"]
+}

@@ -6,7 +6,6 @@ TRANSITION_TYPE="grow"
 TRANSITION_DURATION=3
 TRANSITION_FPS=30
 
-INTERVAL=300  # Default interval of 1 hour (3600 seconds)
 
 # Check if directory exists
 if [ ! -d "$WALLPAPER_DIR" ]; then
@@ -15,7 +14,6 @@ if [ ! -d "$WALLPAPER_DIR" ]; then
 fi
 
 # Infinite loop to shuffle wallpapers
-while true; do
     # Find all image files in the directory and shuffle them
     WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.gif" \) | shuf -n 1)
     
@@ -27,6 +25,3 @@ while true; do
         echo "Wallpaper changed to: $WALLPAPER"
     fi
     
-    # Wait before changing again
-    sleep "$INTERVAL"
-done
