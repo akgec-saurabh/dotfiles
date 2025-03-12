@@ -1,0 +1,9 @@
+{
+  "disk": {
+    "interval": 30,
+    "format": "󰋊",
+    "tooltip": true,
+    "tooltip-format": "{percentage_used}% disk used",
+    "path": "/"
+  }
+}

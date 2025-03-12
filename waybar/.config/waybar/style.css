@@ -7,7 +7,7 @@
 ║                           ██║ █ ██║███████║██║   ██║                          ║
 ║                           ██║███╗██║██╔══██║╚██╗ ██╔╝                          ║
 ║                           ╚███╔███╔╝██║  ██║ ╚████╔╝                           ║
-║                            ╚══╝╚══╝ ╚═╝  ╚═╝  ╚═══╝                            ║
+║                            ╚══╝╚══╝ ╚═╝  ╚═╝  ╚═══╝                         1   ║
 ║                                                                                 ║
 ║                            ██████╗  █████╗ ██████╗                             ║
 ║                            ██╔══██╗██╔══██╗██╔══██╗                            ║
@@ -22,8 +22,8 @@
 ║                             Global Styling                                   ║
 ╚═══════════════════════════════════════════════════════════════════════════╝*/
 * {
-  font-family: "JetBrainsMono Nerd Font";
-  font-size: 13px;
+  font-family: "FiraCode Nerd Font";
+  font-size: 16px;
   font-weight: normal;
   min-height: 0;
   border: none;
@@ -36,12 +36,11 @@
 ║                             Main Bar Styling                                 ║
 ╚═══════════════════════════════════════════════════════════════════════════╝*/
 window#waybar {
-  background: alpha(@base, 0.6);
+  background: alpha(@base, 0.8);
   color: @text;
-  border-radius: 12px;
-  margin: 8px 12px;
-  border: 1px solid alpha(@surface0, 0.5);
-  padding: 4px;
+  border-radius: 8px;
+  /* margin: 8px 12px; */
+  border: 2px solid alpha(@mauve, 0.1);
   box-shadow: none;
 }
 
@@ -127,74 +126,139 @@ window#waybar {
 
 /* Window Title */
 #window {
-  color: alpha(@text, 0.9);
-  background: transparent;
-  margin: 4px 8px;
-  padding: 2px 12px;
   font-weight: normal;
+  font-size: 14px;
+  color: @text;
+  padding: 0 8px;
 }
 
-/* Right Modules Container */
+/* Right Modules Styling */
+#bluetooth,
 #network,
+#pulseaudio,
+#keyboard-state,
 #backlight,
 #battery,
-#clock {
-  background: transparent;
-  padding: 0 4px;
-  margin: 0;
+#cpu,
+#memory,
+#disk,
+#clock,
+#tray,
+#custom-power {
+  padding: 0px;
+  margin: 4px;
   color: @text;
 }
 
-/* Individual Module Styling */
+#custom-padd {
+  color: white;
+  opacity: 0.3;
+}
+
+/* Individual module styling */
+#bluetooth {
+  color: @blue;
+  margin-left: 6px;
+}
+
 #network {
-  color: @text;
+  color: @green;
+  margin-right: 14px;
 }
 
 #network.disconnected {
   color: @red;
 }
 
+#pulseaudio {
+  color: @mauve;
+}
+
+#pulseaudio.muted {
+  color: @red;
+}
+
+#keyboard-state {
+  color: @peach;
+  margin: 0 2px;
+}
+
+#keyboard-state label.locked {
+  color: @red;
+}
+
 #backlight {
-  color: @text;
+  color: @yellow;
 }
 
 #battery {
-  color: @text;
-}
-
-#battery.warning {
-  color: @peach;
-}
-
-#battery.critical {
-  color: @red;
+  color: @blue;
 }
 
 #battery.charging {
   color: @green;
 }
 
+#battery.warning:not(.charging) {
+  color: @peach;
+  background-color: transparent;
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+  animation: blink 1s linear infinite;
+}
+
+#cpu {
+  color: @lavender;
+}
+
+#memory {
+  color: @maroon;
+}
+
+#disk {
+  color: @sapphire;
+}
+
 #clock {
-  color: @text;
+  color: @blue;
+  padding: 2px 4px 0 4px;
 }
 
-/* Remove all hover effects */
-#network:hover,
-#backlight:hover,
-#battery:hover,
-#clock:hover {
-  background: transparent;
-  padding: 0 4px;
+#tray {
+  margin-right: 4px;
+  margin-left: 4px;
 }
 
-/* Tooltip Styling */
-tooltip {
-  background: @base;
-  border: 1px solid alpha(@surface0, 0.5);
-  border-radius: 8px;
+#custom-power {
+  color: @red;
+  margin: 4px 12px 4px 4px;
 }
 
-tooltip label {
-  color: @text;
-  padding: 6px 12px;
+#custom-power:hover {
+  color: @maroon;
+}
+
+@keyframes blink {
+  to {
+    color: @base;
+  }
+}
+
+#custom-notifications {
+  color: @yellow;
+  padding: 0 8px;
+}
+
+#custom-notifications.notification {
+  color: @blue;
+}
+
+#custom-notifications.dnd {
+  color: @red;
+}
+
+#custom-notifications.none {
+  color: @overlay0;
 }

@@ -1,0 +1,7 @@
+{
+  "custom/power": {
+    "format": "<span font='16'>󰐥</span>",
+    "on-click": "~/.config/waybar/scripts/powermenu.sh",
+    "tooltip": false
+  }
+}

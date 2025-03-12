@@ -1,26 +1,40 @@
+@import "mocha.css";
+
 window {
   margin: 0px;
-  border: 1px solid #89dceb; /* Replaced $sky with #89dceb */
-  background-color: #1e1e2e; /* Replaced $base with #1e1e2e */
+  border: 1px solid var(--sky); /* Use variable from mocha.css */
+  background-color: rgba(
+    var(--base-rgb),
+    0.6
+  ); /* Use variable from mocha.css with transparency */
 }
 
 #input {
   margin: 5px;
   border: none;
-  color: #cdd6f4; /* Replaced $text with #cdd6f4 */
-  background-color: #313244; /* Replaced $surface0 with #313244 */
+  color: var(--text); /* Use variable from mocha.css */
+  background-color: rgba(
+    var(--surface0-rgb),
+    0.6
+  ); /* Use variable from mocha.css with transparency */
 }
 
 #inner-box {
   margin: 5px;
   border: none;
-  background-color: #1e1e2e; /* Replaced $base with #1e1e2e */
+  background-color: rgba(
+    var(--base-rgb),
+    0.6
+  ); /* Use variable from mocha.css with transparency */
 }
 
 #outer-box {
   margin: 5px;
   border: none;
-  background-color: #1e1e2e; /* Replaced $base with #1e1e2e */
+  background-color: rgba(
+    var(--base-rgb),
+    0.6
+  ); /* Use variable from mocha.css with transparency */
 }
 
 #scroll {
@@ -31,9 +45,12 @@ window {
 #text {
   margin: 5px;
   border: none;
-  color: #cdd6f4; /* Replaced $text with #cdd6f4 */
+  color: var(--text); /* Use variable from mocha.css */
 }
 
 #entry:selected {
-  background-color: #313244; /* Replaced $surface0 with #313244 */
+  background-color: rgba(
+    var(--surface0-rgb),
+    0.6
+  ); /* Use variable from mocha.css with transparency */
 }

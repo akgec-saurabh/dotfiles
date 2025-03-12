@@ -1,0 +1,8 @@
+{
+  "cpu": {
+    "format": "󰻠",
+    "interval": 1,
+    "tooltip": true,
+    "tooltip-format": "{usage}% CPU usage"
+  }
+}
