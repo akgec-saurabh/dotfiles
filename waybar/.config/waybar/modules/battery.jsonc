@@ -1,15 +1,14 @@
 {
   "battery": {
-    "format": "{icon}{capacity}%",
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "format-charging": "󰚥",
-    "format-plugged": "󰚥",
-    "interval": 30,
     "states": {
       "warning": 30,
-      "critical": 28
+      "critical": 15
     },
-    "on-click-right": "pkill waybar & hyprctl dispatch exec waybar",
-    "tooltip": false
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰂄",
+    "format-plugged": "{capacity}% 󰚥",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
   }
 }

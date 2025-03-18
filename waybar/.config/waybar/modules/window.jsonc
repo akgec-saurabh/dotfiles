@@ -1,9 +1,16 @@
 {
   "hyprland/window": {
-    "format": "<span weight='bold' >{class}</span>",
-    "max-length": 120,
-    "icon": false,
-    "icon-size": 14,
-    "tooltip": false
+    "format": "{}",
+    "separate-outputs": true,
+    "max-length": 50,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": " $1",
+      "(.*) - Visual Studio Code": " $1",
+      "(.*)Spotify": " $1",
+      "(.*)Discord": "󰙯 $1",
+      "(.*) - fish": " [$1]"
+    },
+    "icon": true,
+    "icon-size": 16
   }
 }

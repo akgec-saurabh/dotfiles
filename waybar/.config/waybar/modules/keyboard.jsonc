@@ -4,11 +4,14 @@
     "capslock": true,
     "format": {
       "numlock": "N {icon}",
-      "capslock": "C {icon}"
+      "capslock": "C {icon} "
     },
     "format-icons": {
       "locked": "",
-      "unlocked": ""
+      "unlocked": ""
     }
+  },
+  "hyprland/language": {
+    "format": "{short}"
   }
 }

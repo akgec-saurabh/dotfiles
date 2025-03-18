@@ -13,6 +13,11 @@ function yy
 	rm -f -- "$tmp"
 end
 
+set -x PYENV_ROOT $HOME/.pyenv
+set -x PATH $PYENV_ROOT/bin $PATH
+status --is-interactive; and pyenv init --path | source
+status --is-interactive; and pyenv init - | source
+
 # pnpm
 set -gx PNPM_HOME "/home/saurabh/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH

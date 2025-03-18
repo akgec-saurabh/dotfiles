@@ -1,15 +1,16 @@
 {
-  "memory": {
-    "interval": 1,
-    "rotate": 270,
-    "format": "{icon}",
-    "format-icons": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
-    "max-length": 10
-  },
   "cpu": {
-    "interval": 1,
-    "format": "{icon}",
-    "rotate": 270,
-    "format-icons": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"]
+    "format": "{icon} {usage}%",
+    "format-icons": ["󰘚"],
+    "tooltip": false
+  },
+  "memory": {
+    "format": "{icon} {percentage}%",
+    "format-icons": ["󰍛"]
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["󱃃", "󰔏", "󱃂"]
   }
 }

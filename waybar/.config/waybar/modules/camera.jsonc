@@ -1,0 +1,6 @@
+{
+  "custom/camera": {
+    "format": "",
+    "on-click": "ffplay rtsp://rsmaurya:ss9455329898kk@192.168.1.3:554/stream2"
+  }
+}

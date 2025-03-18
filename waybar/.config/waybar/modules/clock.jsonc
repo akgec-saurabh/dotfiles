@@ -1,18 +1,7 @@
 {
   "clock": {
-    "format": "{:%H:%M}",
-    "format-alt": "{:%a %d %b}",
-    "interval": 1,
-    "tooltip": true,
-    "tooltip-format": "<tt>{calendar}</tt>",
-    "calendar": {
-      "mode": "month",
-      "on-scroll": 1,
-      "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "days": "<span color='#ecc6d9'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b>{}</b></span>"
-      }
-    }
+    "format": "󰥔 {:%H:%M}",
+    "format-alt": "󰃭 {:%Y-%m-%d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   }
 }

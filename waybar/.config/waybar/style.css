@@ -1,198 +1,199 @@
+/* Import Catppuccin Mocha colors */
 @import "mocha.css";
 
-/*╔═══════════════════════════════════════════════════════════════════════════════╗
-║                                                                                 ║
-║                           ██╗    ██╗ █████╗ ██╗   ██╗                          ║
-║                           ██║    ██║██╔══██╗██║   ██║                          ║
-║                           ██║ █ ██║███████║██║   ██║                          ║
-║                           ██║███╗██║██╔══██║╚██╗ ██╔╝                          ║
-║                           ╚███╔███╔╝██║  ██║ ╚████╔╝                           ║
-║                            ╚══╝╚══╝ ╚═╝  ╚═╝  ╚═══╝                         1   ║
-║                                                                                 ║
-║                            ██████╗  █████╗ ██████╗                             ║
-║                            ██╔══██╗██╔══██╗██╔══██╗                            ║
-║                            ██████╔╝███████║██████╔╝                            ║
-║                            ██╔══██╗██╔══██║██╔══██╗                            ║
-║                            ██████╔╝██║  ██║██║  ██║                            ║
-║                            ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝                            ║
-║                                                                                 ║
-╚═══════════════════════════════════════════════════════════════════════════════╝*/
-
-/*╔═══════════════════════════════════════════════════════════════════════════╗
-║                             Global Styling                                   ║
-╚═══════════════════════════════════════════════════════════════════════════╝*/
+/* Base styling */
 * {
-  font-family: "FiraCode Nerd Font";
-  font-size: 16px;
+  font-family: "FiraCode Nerd Font", monospace;
+  font-size: 14px;
   font-weight: normal;
   min-height: 0;
-  border: none;
-  border-radius: 0;
   margin: 0;
   padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+  transition-duration: 200ms;
 }
 
-/*╔═══════════════════════════════════════════════════════════════════════════╗
-║                             Main Bar Styling                                 ║
-╚═══════════════════════════════════════════════════════════════════════════╝*/
+/* Main bar */
 window#waybar {
-  background: alpha(@base, 0.8);
+  background: alpha(@base, 0.4);
   color: @text;
   border-radius: 8px;
-  /* margin: 8px 12px; */
-  border: 2px solid alpha(@mauve, 0.1);
-  box-shadow: none;
+  margin: 6px 6px 0 6px;
+  border: 2px solid alpha(@mauve, 0.2);
 }
 
-/* Fix for corners */
+/* Modules container */
 .modules-left,
 .modules-center,
 .modules-right {
-  background: transparent;
-  border: none;
-  border-radius: 12px;
+  padding: 0 8px;
 }
 
-/*╔═══════════════════════════════════════════════════════════════════════════╗
-║                           Workspaces Styling                                 ║
-╚═══════════════════════════════════════════════════════════════════════════╝*/
-#workspaces {
+/* Generic module styling */
+#workspaces,
+#submap,
+#window,
+#idle_inhibitor,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#clock,
+#tray,
+#mpd,
+#custom-media,
+#custom-power,
+#power-profiles-daemon,
+#keyboard-state,
+#language,
+#custom-arch {
+  padding: 0 6px;
+  margin: 0 4px;
+  color: @text;
   background: transparent;
-  border-radius: 12px;
-  margin: 6px;
-  padding: 0;
 }
 
 /* Workspace Buttons */
 #workspaces button {
   color: @overlay0;
-  padding: 0 6px;
-  margin: 0 2px;
+  padding: 0 4px;
+  margin: 0 1px;
   background: transparent;
-  min-width: 20px;
-  min-height: 20px;
-  font-weight: normal;
-  border: none;
+  border-radius: 0;
   box-shadow: none;
-  transition: all 0.1s ease;
+  min-width: 18px;
+  min-height: 18px;
+  font-size: 14px;
 }
 
-/* Workspace Button Hover */
 #workspaces button:hover {
   color: @text;
+  background: transparent;
+  box-shadow: none;
 }
 
-/* Active Workspace Button */
 #workspaces button.active {
-  color: @text;
-  border: none;
+  color: @mauve;
+  background: alpha(@mauve, 0.2);
+  font-weight: bold;
   border-radius: 0;
-  box-shadow: inset 0 -1px 0 @blue;
+  box-shadow: none;
+}
+
+#workspaces button.urgent {
+  color: @red;
+  background: transparent;
+  box-shadow: none;
+}
+
+#workspaces button.special {
+  color: @peach;
+  font-style: italic;
+}
+
+/* Window title */
+#window {
+  color: @text;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+/* Window states - Hyprland specific */
+window#waybar.empty #window {
+  background: transparent;
+}
+
+window#waybar.solo #window {
+  background: transparent;
+}
+
+window#waybar.floating #window {
+  color: @blue;
+}
+
+window#waybar.fullscreen #window {
+  color: @red;
+}
+
+window#waybar.swallowing #window {
+  color: @green;
+}
+
+/* Submap styling */
+#submap {
+  color: @yellow;
+  font-weight: bold;
+}
+
+/* Language module */
+#language {
+  color: @lavender;
+  font-weight: bold;
+  min-width: 25px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* Idle Inhibitor styling */
+#idle_inhibitor {
+  color: @overlay0;
+  font-size: 16px;
+  padding: 0 8px;
+  margin: 0 2px;
+}
+
+#idle_inhibitor.activated {
+  color: @peach;
+}
+
+/* Keyboard state - Simple indicators */
+#keyboard-state {
+  color: @overlay0;
   padding: 0 6px;
   margin: 0 2px;
 }
 
-/* Urgent Workspace Button */
-#workspaces button.urgent {
-  color: @red;
-}
-
-/*╔═══════════════════════════════════════════════════════════════════════════╗
-║                              Animations                                      ║
-╚═══════════════════════════════════════════════════════════════════════════╝*/
-@keyframes blink {
-  to {
-    background-color: alpha(@red, 0.2);
-  }
-}
-
-@keyframes gradient_fade {
-  0% {
-    background: alpha(@surface2, 0.8);
-  }
-  50% {
-    background: alpha(@overlay0, 0.6);
-  }
-}
-
-@keyframes gradient_fade_blue {
-  0% {
-    background: @blue;
-  }
-  50% {
-    background: @base;
-  }
-}
-
-/* Window Title */
-#window {
-  font-weight: normal;
-  font-size: 14px;
-  color: @text;
-  padding: 0 8px;
-}
-
-/* Right Modules Styling */
-#bluetooth,
-#network,
-#pulseaudio,
-#keyboard-state,
-#backlight,
-#battery,
-#cpu,
-#memory,
-#disk,
-#clock,
-#tray,
-#custom-power {
-  padding: 0px;
-  margin: 4px;
-  color: @text;
-}
-
-#custom-padd {
-  color: white;
-  opacity: 0.3;
-}
-
-/* Individual module styling */
-#bluetooth {
-  color: @blue;
-  margin-left: 6px;
-}
-
-#network {
+#keyboard-state label.capslock.locked {
   color: @green;
-  margin-right: 14px;
+  font-weight: bold;
 }
 
-#network.disconnected {
-  color: @red;
+#keyboard-state label.numlock.locked {
+  color: @blue;
+  font-weight: bold;
 }
 
+/* PulseAudio */
 #pulseaudio {
-  color: @mauve;
+  color: @blue;
 }
 
 #pulseaudio.muted {
   color: @red;
 }
 
-#keyboard-state {
-  color: @peach;
-  margin: 0 2px;
+/* Network */
+#network {
+  color: @green;
 }
 
-#keyboard-state label.locked {
+#network.disconnected {
   color: @red;
 }
 
-#backlight {
+#network.linked {
   color: @yellow;
 }
 
+/* Battery */
 #battery {
-  color: @blue;
+  color: @yellow;
 }
 
 #battery.charging {
@@ -201,64 +202,184 @@ window#waybar {
 
 #battery.warning:not(.charging) {
   color: @peach;
-  background-color: transparent;
 }
 
 #battery.critical:not(.charging) {
   color: @red;
-  animation: blink 1s linear infinite;
 }
 
+/* System monitors */
 #cpu {
-  color: @lavender;
+  color: @sky;
 }
 
 #memory {
-  color: @maroon;
+  color: @mauve;
 }
 
-#disk {
-  color: @sapphire;
+#temperature {
+  color: @yellow;
 }
 
+#temperature.critical {
+  color: @red;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+/* Clock */
 #clock {
   color: @blue;
-  padding: 2px 4px 0 4px;
-}
-
-#tray {
+  font-weight: bold;
   margin-right: 4px;
-  margin-left: 4px;
 }
 
+/* Power button */
 #custom-power {
   color: @red;
-  margin: 4px 12px 4px 4px;
+  margin-right: 6px;
 }
 
-#custom-power:hover {
-  color: @maroon;
+/* Tray */
+#tray {
+  margin-right: 4px;
 }
 
-@keyframes blink {
-  to {
-    color: @base;
-  }
-}
-
-#custom-notifications {
-  color: @yellow;
-  padding: 0 8px;
-}
-
-#custom-notifications.notification {
+/* Bluetooth */
+#bluetooth {
   color: @blue;
 }
 
-#custom-notifications.dnd {
+#bluetooth.disabled {
+  color: @overlay2;
+}
+
+#bluetooth.off {
+  color: @surface1;
+}
+
+#bluetooth.connected {
+  color: @green;
+}
+
+/* MPD */
+#mpd {
+  color: @mauve;
+}
+
+#mpd.playing {
+  color: @green;
+}
+
+#mpd.paused {
+  color: @yellow;
+}
+
+#mpd.stopped {
   color: @red;
 }
 
-#custom-notifications.none {
-  color: @overlay0;
+/* Power profiles */
+#power-profiles-daemon {
+  color: @teal;
+}
+
+#power-profiles-daemon.performance {
+  color: @red;
+}
+
+#power-profiles-daemon.balanced {
+  color: @blue;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @green;
+}
+
+/* Arch Linux icon styling */
+#custom-arch {
+  color: @blue;
+  font-size: 20px;
+  padding: 0 8px;
+  margin-right: 6px;
+  margin-left: 6px;
+  font-weight: bold;
+}
+
+#custom-arch:hover {
+  color: @mauve;
+  background: alpha(@surface0, 0.3);
+  border-radius: 4px;
+}
+
+/* Tooltip styling */
+tooltip {
+  background: @base;
+  border: 2px solid alpha(@mauve, 0.3);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+tooltip label {
+  color: @text;
+  padding: 6px;
+}
+
+/* Taskbar styling */
+#taskbar {
+  margin: 0 4px;
+}
+
+#taskbar button {
+  padding: 0 4px;
+  margin: 0 2px;
+  color: @text;
+  background: transparent;
+  border-radius: 0;
+  min-height: 0;
+  min-width: 0;
+}
+
+#taskbar button:hover {
+  background: alpha(@surface0, 0.3);
+  border-radius: 4px;
+}
+
+#taskbar button.active {
+  background: alpha(@mauve, 0.2);
+  border-radius: 4px;
+}
+
+#taskbar button.minimized {
+  opacity: 0.5;
+}
+
+#taskbar button.maximized {
+  background: alpha(@blue, 0.2);
+  border-radius: 4px;
+}
+
+#taskbar button.fullscreen {
+  background: alpha(@red, 0.2);
+  border-radius: 4px;
+}
+
+#taskbar.empty {
+  background: transparent;
+}
+
+#taskbar button.minimized {
+  opacity: 0.5;
+}
+
+#taskbar button.maximized {
+  background: alpha(@blue, 0.2);
+  border-radius: 4px;
+}
+
+#taskbar button.fullscreen {
+  background: alpha(@red, 0.2);
+  border-radius: 4px;
 }
