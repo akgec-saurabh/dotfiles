@@ -13,8 +13,7 @@
     "custom/arch",
     "hyprland/workspaces",
     "hyprland/submap",
-    "wlr/taskbar",
-    "custom/camera"
+    "wlr/taskbar"
   ],
   "modules-center": ["hyprland/window"],
   "modules-right": [
