@@ -1,0 +1,37 @@
+[global]
+    # Appearance
+    frame_color = "#89b4fa"
+    separator_color = frame
+    highlight = "#89b4fa"
+    corner_radius = 10
+    padding = 10
+    font = "JetBrainsMono Nerd Font 10"
+
+
+
+    # Behavior
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    word_wrap = yes
+    ignore_newline = no
+    stack_duplicates = true
+    history_length = 20
+
+    # Low urgency notifications
+[urgency_low]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    timeout = 5
+
+    # Normal urgency notifications
+[urgency_normal]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    timeout = 10
+
+    # Critical urgency notifications
+[urgency_critical]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    frame_color = "#fab387"
+    timeout = 0
