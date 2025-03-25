@@ -1,6 +1,11 @@
 {
   "tray": {
     "spacing": 10,
-    "show-passive-items": true
+    "show-passive-items": false,
+    "icons": {
+	    "blueman": "bluetooth",
+	    "TelegramDesktop": "/home/snowy/Downloads/telegram-plane.svg"
+	}
+
   }
 }
