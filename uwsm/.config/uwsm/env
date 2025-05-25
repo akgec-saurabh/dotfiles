@@ -1,0 +1,3 @@
+export XCURSOR_SIZE=24
+export GTK_THEME = Layan-Dark
+export XCURSOR_THEME = Bibata-Modern-Amber

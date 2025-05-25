@@ -95,3 +95,16 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+# pnpm
+export PNPM_HOME="/home/snowy/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+
+
+if uwsm check may-start && uwsm select; then
+	exec uwsm start default
+fi

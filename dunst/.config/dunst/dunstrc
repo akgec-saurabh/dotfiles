@@ -5,7 +5,7 @@
     highlight = "#89b4fa"
     corner_radius = 10
     padding = 10
-    font = "JetBrainsMono Nerd Font 10"
+    font = "JetBrainsMono Nerd Font"
 
 
 
