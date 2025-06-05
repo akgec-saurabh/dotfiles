@@ -1,4 +1,4 @@
-[manager]
+[mgr]
 show_hidden = false
 sort_by = "natural"
 sort_reverse = false

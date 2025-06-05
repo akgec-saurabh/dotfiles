@@ -80,6 +80,25 @@ alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
 
+alias reboot='systemctl reboot'
+alias poweroff='systemctl poweroff'
+
+
+alias ff='fastfetch'
+
+# Git
+alias gs='git status'
+alias ga='git add'
+alias gm='git commit'
+alias gca='git commit --amend'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate --all'
+alias gc='git checkout'
+alias gb='git branch'
+alias gd='git diff'
+alias gpl='git pull'
+
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
