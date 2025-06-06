@@ -1,13 +1,11 @@
 [global]
     # Appearance
-    frame_color = "#89b4fa"
+    frame_color = "#89b4fa"          # blue
+    frame_width = 2
     separator_color = frame
-    highlight = "#89b4fa"
-    corner_radius = 10
-    padding = 10
-    font = "JetBrainsMono Nerd Font"
-
-
+    highlight = "#cba6f7"            # mauve
+    padding = 12
+    font = "JetBrainsMono Nerd Font 10"
 
     # Behavior
     format = "<b>%s</b>\n%b"
@@ -17,39 +15,21 @@
     stack_duplicates = true
     history_length = 20
 
-    # Low urgency notifications
+# Low urgency notifications
 [urgency_low]
-    background = "#1e1e2e"
-    foreground = "#cdd6f4"
+    background = "#1e1e2e"           # base
+    foreground = "#a6adc8"           # subtext0
     timeout = 5
 
-    # Normal urgency notifications
+# Normal urgency notifications
 [urgency_normal]
-    background = "#1e1e2e"
-    foreground = "#cdd6f4"
+    background = "#1e1e2e"           # base
+    foreground = "#cdd6f4"           # text
     timeout = 10
 
-    # Critical urgency notifications
+# Critical urgency notifications
 [urgency_critical]
-    background = "#1e1e2e"
-    foreground = "#cdd6f4"
-    frame_color = "#fab387"
+    background = "#1e1e2e"           # base
+    foreground = "#f38ba8"           # red
+    frame_color = "#fab387"          # peach
     timeout = 0
-
-    [global]
-frame_color = "#89b4fa"
-separator_color= frame
-highlight = "#89b4fa"
-
-[urgency_low]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
-
-[urgency_normal]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
-
-[urgency_critical]
-background = "#1e1e2e"
-foreground = "#cdd6f4"
-frame_color = "#fab387"

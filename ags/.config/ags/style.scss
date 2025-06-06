@@ -1,33 +1,64 @@
 @use "sass:color";
 
-$bg: #212223;
-$fg: #f1f1f1;
-$accent: #378DF7;
-$yellow: #FFD700;
-$radius: 4px;
+$radius: 8px;
+
+// Catppuccin Mocha colors
+$rosewater: rgb(245, 224, 220);
+$flamingo: rgb(242, 205, 205);
+$pink: rgb(245, 194, 231);
+$mauve: rgb(203, 166, 247);
+$red: rgb(243, 139, 168);
+$maroon: rgb(235, 160, 172);
+$peach: rgb(250, 179, 135);
+$yellow: rgb(249, 226, 175);
+$green: rgb(166, 227, 161);
+$teal: rgb(148, 226, 213);
+$sky: rgb(137, 220, 235);
+$sapphire: rgb(116, 199, 236);
+$blue: rgb(137, 180, 250);
+$lavender: rgb(180, 190, 254);
+$text: rgb(205, 214, 244);
+$subtext1: rgb(186, 194, 222);
+$subtext0: rgb(166, 173, 200);
+$overlay2: rgb(147, 153, 178);
+$overlay1: rgb(127, 132, 156);
+$overlay0: rgb(108, 112, 134);
+$surface2: rgb(88, 91, 112);
+$surface1: rgb(69, 71, 90);
+$surface0: rgb(49, 50, 68);
+$base: rgb(30, 30, 46);
+$mantle: rgb(24, 24, 37);
+$crust: rgb(17, 17, 27);
+
+// Define main theme colors
+$bg: $surface1;
+$fg: $text;
+$accent: $yellow;
 
 window.Bar {
     all: unset;
     padding: 4px;
-    border: none;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-    background-color: transparent;
+    border: 1px solid $sapphire;
+    // margin: 10px;
+    // border: 2px solid $sapphire;
+    // box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+    background-color: color.change($base, $alpha: 0.4);
     color: $fg;
     font-size: 14px;
-    font-weight: normal;
+    font-weight: 600;
 
     label {
         margin: 0 4px;
     }
 
     .Workspaces {
+        padding: 2px;
 
         button {
             all: unset;
             // background-color: red;
             min-width: 24px;
             min-height: 24px;
-            margin: 0px;
 
             label {
                 transition: all 200ms cubic-bezier(0.1, 1, 0.3, 1);
@@ -49,16 +80,22 @@ window.Bar {
 
         .focused label {
             color: black;
-            border-color: $yellow;
-            background-color: $accent;
+            // border-color: $yellow;
+            background-color: $sapphire;
+
+
         }
     }
 
     .SysTray {
-        margin-right: 8px;
+        all: unset;
+        // margin-right: 2px;
+        // margin-right: 4px;
 
         button {
+            all: unset;
             padding: 0 4px;
+            font-size: 16px;
         }
     }
 
@@ -67,7 +104,7 @@ window.Bar {
         color: $fg;
 
         .FocusedClientIcon {
-            font-size: 18px;
+            font-size: 20px;
             margin-right: 4px;
         }
     }
@@ -83,6 +120,15 @@ window.Bar {
     .Battery label {
         padding-left: 0;
         margin-left: 0;
+    }
+
+    .network-speed {
+        font-size: 12px;
+        font-weight: bold;
+        padding: 2px;
+        margin-right: 4px;
+
+
     }
 
     .AudioSlider {
@@ -101,11 +147,12 @@ window.Bar {
         trough {
             background-color: color.adjust($fg, $alpha: -0.8);
             border-radius: $radius;
+            min-height: 0.2em;
         }
 
         highlight {
             background-color: $accent;
-            min-height: .8em;
+            // min-height: .2em;
             border-radius: $radius;
         }
 

@@ -27,7 +27,7 @@ function SysTray() {
 }
 
 function NetworkSpeed() {
-    return <box className="network-speed">
+    return <box className="network-speed" orientation={Gtk.Orientation.VERTICAL}>
         <label
             className="label"
             label={networkSpeed((value) => {
@@ -40,8 +40,12 @@ function NetworkSpeed() {
 
                 const symbol = downloadSpeed >= uploadSpeed ? "" : "";
 
-                return `${speed} MB/s ${symbol}`;
+                return `${speed} ${symbol}`;
             })}
+        />
+        <label
+            className="network-speed-label"
+            label="MB/s"
         />
     </box>
 }
@@ -147,7 +151,7 @@ function FocusedClient() {
     </box>
 }
 
-function Time({ format = "%H:%M - %A %d %b %y" }) {
+function Time({ format = "%H:%M - %a %d %b %y" }) {
     const time = Variable<string>("").poll(1000, () =>
         GLib.DateTime.new_now_local().format(format)!)
 
@@ -164,8 +168,10 @@ export default function Bar(monitor: Gdk.Monitor) {
     return <window
         className="Bar"
         gdkmonitor={monitor}
+        // margin={10}
         exclusivity={Astal.Exclusivity.EXCLUSIVE}
         anchor={TOP | LEFT | RIGHT}>
+
         <centerbox>
             <box hexpand halign={Gtk.Align.START}>
                 <Workspaces />
