@@ -46,6 +46,7 @@ window.Bar {
     color: $fg;
     font-size: 14px;
     font-weight: 600;
+    font-family: 'JetBrainsMono Nerd Font';
 
     label {
         margin: 0 4px;
@@ -86,6 +87,7 @@ window.Bar {
 
         }
     }
+
 
     .SysTray {
         all: unset;
@@ -134,34 +136,12 @@ window.Bar {
     .AudioSlider {
         * {
             all: unset;
+            margin: 0 8px;
         }
 
-        icon {
-            margin-right: .6em;
-        }
+    }
 
-        & {
-            margin: 0 1em;
-        }
-
-        trough {
-            background-color: color.adjust($fg, $alpha: -0.8);
-            border-radius: $radius;
-            min-height: 0.2em;
-        }
-
-        highlight {
-            background-color: $accent;
-            // min-height: .2em;
-            border-radius: $radius;
-        }
-
-        slider {
-            background-color: $fg;
-            border-radius: $radius;
-            min-height: 1em;
-            min-width: 1em;
-            margin: -.2em;
-        }
+    icon {
+        font-size: 14px;
     }
 }

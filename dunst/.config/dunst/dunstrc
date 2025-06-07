@@ -1,11 +1,15 @@
 [global]
     # Appearance
-    frame_color = "#89b4fa"          # blue
-    frame_width = 2
+    width=(300,500)
+    height=(0,500)
+    offset=(5,5)
+    frame_color = "#89b4fa"         # blue
+    frame_width = 1
     separator_color = frame
-    highlight = "#cba6f7"            # mauve
+    highlight = "#cba6f7"           # mauve
     padding = 12
     font = "JetBrainsMono Nerd Font 10"
+    max_icon_size = 128             # <--- Add this line to increase the icon size
 
     # Behavior
     format = "<b>%s</b>\n%b"
@@ -14,6 +18,7 @@
     ignore_newline = no
     stack_duplicates = true
     history_length = 20
+    progress_bar_horizontal_alignment = left
 
 # Low urgency notifications
 [urgency_low]
@@ -26,10 +31,17 @@
     background = "#1e1e2e"           # base
     foreground = "#cdd6f4"           # text
     timeout = 10
-
+    screenshot
 # Critical urgency notifications
 [urgency_critical]
     background = "#1e1e2e"           # base
     foreground = "#f38ba8"           # red
     frame_color = "#fab387"          # peach
     timeout = 0
+
+
+[custom-screenshot]
+    appname=screenshot
+    format="<b>%s</b>\n%b"
+    vertical_alignment=top
+    icon_position=left
