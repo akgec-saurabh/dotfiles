@@ -28,6 +28,7 @@
   normal-foreground:           @foreground;
   alternate-urgent-foreground: @red;
   alternate-active-foreground: @blue;
+  font              : "FiraCode Nerd Font 12";
 
 }
 element {
@@ -35,6 +36,7 @@ element {
     cursor:  pointer;
     spacing: 5px ;
     border:  0;
+
 }
 element normal.normal {
     background-color: @normal-background;
@@ -88,9 +90,13 @@ window {
     padding:          5;
     background-color: @background;
     border:           1;
+    width:36%;
+    height:480px;
+
 }
 mainbox {
     padding: 0;
+    max-height:10px;
     border:  0;
 }
 message {
