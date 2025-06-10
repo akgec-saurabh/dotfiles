@@ -9,7 +9,6 @@
     highlight = "#cba6f7"           # mauve
     padding = 12
     font = "JetBrainsMono Nerd Font 10"
-    max_icon_size = 128             # <--- Add this line to increase the icon size
 
     # Behavior
     format = "<b>%s</b>\n%b"
@@ -19,6 +18,8 @@
     stack_duplicates = true
     history_length = 20
     progress_bar_horizontal_alignment = left
+    vertical_alignment=top
+
 
 # Low urgency notifications
 [urgency_low]
@@ -41,6 +42,7 @@
 
 
 [custom-screenshot]
+    max_icon_size = 128            
     appname=screenshot
     format="<b>%s</b>\n%b"
     vertical_alignment=top

@@ -125,12 +125,22 @@ window.Bar {
     }
 
     .network-speed {
-        font-size: 12px;
-        font-weight: bold;
-        padding: 2px;
-        margin-right: 4px;
+        // font-size: 12px;
+        // font-weight: bold;
+        // padding: 2px;
+        // margin-right: 4px;
 
 
+
+    }
+    .Separator {
+        font-size: 14px;
+        font-weight: 100;
+        margin-left: 0px;
+        margin-right: 0px;
+        // padding: 2px;
+        // margin-right: 4px;
+        opacity: 0.5;
     }
 
     .AudioSlider {

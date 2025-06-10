@@ -26,10 +26,30 @@ function SysTray() {
     </box>
 }
 
+function Memory() {
+
+    const ramUsage = Variable("")
+    .poll(1000, ["bash", "-c", "free -m | awk '/Mem:/ { printf(\"%.1fG/%.1fG\\n\", $3/1024, $2/1024) }'"]);
+  
+    return <label
+        className="Memory"
+        label={bind(ramUsage).as(value =>   ` ${value}`)}
+        onDestroy={() => ramUsage.drop()}
+    />
+
+}
+
+function Separator() {
+    return <label
+        className="Separator"
+        label="|"
+    />
+}
+
 function NetworkSpeed() {
-    return <box className="network-speed" orientation={Gtk.Orientation.VERTICAL}>
+    return (
         <label
-            className="label"
+            className="network-speed"
             label={networkSpeed((value) => {
                 const downloadSpeed = value.download;
                 const uploadSpeed = value.upload;
@@ -40,14 +60,9 @@ function NetworkSpeed() {
 
                 const symbol = downloadSpeed >= uploadSpeed ? "" : "";
 
-                return `${speed} ${symbol}`;
+                return `${speed} ${symbol} MB/s`;
             })}
-        />
-        <label
-            className="network-speed-label"
-            label="MB/s"
-        />
-    </box>
+        />)
 }
 
 function Wifi() {
@@ -177,10 +192,14 @@ export default function Bar(monitor: Gdk.Monitor) {
             </box>
             <box hexpand halign={Gtk.Align.END} >
                 <SysTray />
+                <Memory />
+                <Separator/>
                 <NetworkSpeed />
                 <Wifi />
                 <AudioSlider />
                 <BatteryLevel />
+                <Separator/>
+
                 <Time />
             </box>
         </centerbox>
