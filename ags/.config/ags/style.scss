@@ -36,122 +36,115 @@ $fg: $text;
 $accent: $yellow;
 
 window.Bar {
+  all: unset;
+  padding: 4px;
+  border: 1px solid $sapphire;
+  // margin: 10px;
+  // border: 2px solid $sapphire;
+  // box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+  background-color: color.change($crust, $alpha: 0.3);
+  color: $fg;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "JetBrainsMono Nerd Font";
+
+  label {
+    margin: 0 4px;
+  }
+
+  .Workspaces {
+    padding: 2px;
+
+    button {
+      all: unset;
+      // background-color: red;
+      min-width: 24px;
+      min-height: 24px;
+
+      label {
+        transition: all 200ms cubic-bezier(0.1, 1, 0.3, 1);
+        // padding: 2px 10px;
+        margin: 0px;
+        // border-radius: $radius;
+        background-color: color.adjust($bg, $lightness: 5%);
+      }
+
+      &:hover label {
+        background-color: color.adjust($bg, $lightness: 10%);
+        border-color: color.adjust($accent, $alpha: -0.7);
+      }
+
+      &:active label {
+        background-color: color.adjust($bg, $lightness: 15%);
+      }
+    }
+
+    .focused label {
+      color: black;
+      // border-color: $yellow;
+      background-color: $sapphire;
+    }
+  }
+
+  .SysTray {
     all: unset;
-    padding: 4px;
-    border: 1px solid $sapphire;
-    // margin: 10px;
-    // border: 2px solid $sapphire;
-    // box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
-    background-color: color.change($base, $alpha: 0.4);
+    // margin-right: 2px;
+    // margin-right: 4px;
+
+    button {
+      all: unset;
+      padding: 0 4px;
+      font-size: 16px;
+    }
+  }
+
+  .FocusedClient {
+    margin-left: 8px;
     color: $fg;
+
+    .FocusedClientIcon {
+      font-size: 20px;
+      margin-right: 4px;
+    }
+  }
+
+  .Media .Cover {
+    min-height: 1.2em;
+    min-width: 1.2em;
+    border-radius: $radius;
+    background-position: center;
+    background-size: contain;
+  }
+
+  .Battery label {
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .network-speed {
+    // font-size: 12px;
+    // font-weight: bold;
+    // padding: 2px;
+    // margin-right: 4px;
+  }
+  .Separator {
     font-size: 14px;
-    font-weight: 600;
-    font-family: 'JetBrainsMono Nerd Font';
+    font-weight: 100;
+    margin-left: 0px;
+    margin-right: 0px;
+    // padding: 2px;
+    // margin-right: 4px;
+    opacity: 0.5;
+  }
 
-    label {
-        margin: 0 4px;
+  .AudioSlider {
+    * {
+      all: unset;
+      margin: 0 8px;
     }
+  }
 
-    .Workspaces {
-        padding: 2px;
-
-        button {
-            all: unset;
-            // background-color: red;
-            min-width: 24px;
-            min-height: 24px;
-
-            label {
-                transition: all 200ms cubic-bezier(0.1, 1, 0.3, 1);
-                // padding: 2px 10px;
-                margin: 0px;
-                // border-radius: $radius;
-                background-color: color.adjust($bg, $lightness: 5%);
-            }
-
-            &:hover label {
-                background-color: color.adjust($bg, $lightness: 10%);
-                border-color: color.adjust($accent, $alpha: -0.7);
-            }
-
-            &:active label {
-                background-color: color.adjust($bg, $lightness: 15%);
-            }
-        }
-
-        .focused label {
-            color: black;
-            // border-color: $yellow;
-            background-color: $sapphire;
-
-
-        }
-    }
-
-
-    .SysTray {
-        all: unset;
-        // margin-right: 2px;
-        // margin-right: 4px;
-
-        button {
-            all: unset;
-            padding: 0 4px;
-            font-size: 16px;
-        }
-    }
-
-    .FocusedClient {
-        margin-left: 8px;
-        color: $fg;
-
-        .FocusedClientIcon {
-            font-size: 20px;
-            margin-right: 4px;
-        }
-    }
-
-    .Media .Cover {
-        min-height: 1.2em;
-        min-width: 1.2em;
-        border-radius: $radius;
-        background-position: center;
-        background-size: contain;
-    }
-
-    .Battery label {
-        padding-left: 0;
-        margin-left: 0;
-    }
-
-    .network-speed {
-        // font-size: 12px;
-        // font-weight: bold;
-        // padding: 2px;
-        // margin-right: 4px;
-
-
-
-    }
-    .Separator {
-        font-size: 14px;
-        font-weight: 100;
-        margin-left: 0px;
-        margin-right: 0px;
-        // padding: 2px;
-        // margin-right: 4px;
-        opacity: 0.5;
-    }
-
-    .AudioSlider {
-        * {
-            all: unset;
-            margin: 0 8px;
-        }
-
-    }
-
-    icon {
-        font-size: 14px;
-    }
+  icon {
+    font-size: 14px;
+  }
 }
