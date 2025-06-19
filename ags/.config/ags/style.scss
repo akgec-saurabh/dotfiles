@@ -39,9 +39,6 @@ window.Bar {
   all: unset;
   padding: 4px;
   border: 1px solid $sapphire;
-  // margin: 10px;
-  // border: 2px solid $sapphire;
-  // box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
   background-color: color.change($crust, $alpha: 0.3);
   color: $fg;
   font-size: 14px;
