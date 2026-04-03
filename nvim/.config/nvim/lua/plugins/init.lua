@@ -1,0 +1,8 @@
+require('plugins.treesitter')
+require('plugins.nvim-tree')
+require('plugins.colorscheme')
+require('plugins.lualine')
+require('plugins.telescope')
+require('plugins.autopairs')
+require('plugins.lsp')
+require('plugins.bufferline')

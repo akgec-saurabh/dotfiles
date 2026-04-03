@@ -1,0 +1,151 @@
+@import "mocha.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  min-height: 0;
+  border: none;
+  border-radius: 0;
+}
+
+/* ── Bar ─────────────────────────────────────────────────── */
+window#waybar {
+  background: @base;
+  color: @subtext0;
+  border-bottom: 2px solid @surface0;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* ── Tooltip ─────────────────────────────────────────────── */
+tooltip {
+  background: @mantle;
+  color: @text;
+  border: 1px solid @surface1;
+  border-radius: 0;
+  padding: 6px 10px;
+}
+
+tooltip label {
+  color: @text;
+}
+
+/* ── All modules — flat, no rounding ────────────────────── */
+#workspaces,
+#clock,
+#pulseaudio,
+#network,
+#battery,
+#tray,
+#custom-power {
+  background: transparent;
+  border-radius: 0;
+  margin: 0;
+  padding: 0 12px;
+  color: @subtext0;
+}
+
+/* ── Workspaces ──────────────────────────────────────────── */
+#workspaces {
+  padding: 0 4px;
+}
+
+#workspaces button {
+  padding: 0 10px;
+  margin: 0;
+  color: @overlay0;
+  background: transparent;
+  border-radius: 0;
+  font-size: 12px;
+  font-weight: 600;
+  min-height: 32px;
+  min-width: 0;
+  box-shadow: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.1s ease, border-color 0.1s ease;
+}
+
+#workspaces button:hover {
+  color: @text;
+  background: @surface0;
+  border-bottom: 2px solid @surface2;
+}
+
+#workspaces button.active {
+  color: @mauve;
+  background: transparent;
+  border-bottom: 2px solid @mauve;
+}
+
+#workspaces button.urgent {
+  color: @red;
+  border-bottom: 2px solid @red;
+}
+
+/* ── Clock ───────────────────────────────────────────────── */
+#clock {
+  color: @text;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ── Right modules ───────────────────────────────────────── */
+#pulseaudio {
+  color: @yellow;
+}
+
+#pulseaudio.muted {
+  color: @overlay1;
+}
+
+#network {
+  color: @blue;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.warning {
+  color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+  color: @red;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @teal;
+}
+
+/* ── Tray ────────────────────────────────────────────────── */
+#tray {
+  padding: 0 8px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* ── Power ───────────────────────────────────────────────── */
+#custom-power {
+  color: @overlay1;
+  padding: 0 14px;
+}
+
+#custom-power:hover {
+  color: @red;
+  background: @surface0;
+}
