@@ -1,8 +1,10 @@
 vim.pack.add({
-  { src = "https://github.com/Saghen/blink.cmp"},
+  { src = "https://github.com/Saghen/blink.cmp" },
   { src = "https://github.com/L3MON4D3/LuaSnip" },
   { src = "https://github.com/rafamadriz/friendly-snippets" },
 })
+
+require("luasnip.loaders.from_vscode").lazy_load()
 
 require("blink.cmp").setup({
   keymap = {
@@ -20,6 +22,9 @@ require("blink.cmp").setup({
   },
 
   completion = {
+    menu = {
+      auto_show = true,
+    },
     documentation = {
       auto_show = true,
       auto_show_delay_ms = 200,
@@ -41,5 +46,3 @@ require("blink.cmp").setup({
     implementation = "prefer_rust_with_warning",
   },
 })
-
-require("luasnip.loaders.from_vscode").lazy_load()

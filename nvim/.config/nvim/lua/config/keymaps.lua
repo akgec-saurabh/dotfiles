@@ -1,4 +1,5 @@
 -- ============================
+--
 -- KEYMAPS FILE (keymaps.lua)
 -- ============================
 
@@ -91,7 +92,7 @@ keymap.set("n", "gr", vim.lsp.buf.references, opts)
 keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 keymap.set("n", "<leader>lf", function()
-  vim.lsp.buf.format({ async = true })
+    require("conform").format({ async = true, lsp_fallback = true })
 end, opts)
 
 keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)

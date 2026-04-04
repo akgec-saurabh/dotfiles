@@ -15,6 +15,8 @@ vim.diagnostic.config({
 })
 
 local keymap = vim.keymap
+local blink = require("blink.cmp")
+local capabilities = blink.get_lsp_capabilities()
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
@@ -27,6 +29,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap.set("n", "gr", vim.lsp.buf.references, opts)
     keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+
     keymap.set("n", "<leader>f", function()
       vim.lsp.buf.format({ async = true })
     end, opts)
@@ -39,6 +42,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- TypeScript / JavaScript
 vim.lsp.config("ts_ls", {
+  capabilities = capabilities,
   filetypes = {
     "javascript",
     "javascriptreact",
@@ -46,31 +50,52 @@ vim.lsp.config("ts_ls", {
     "typescriptreact",
   },
 })
-
 vim.lsp.enable("ts_ls")
 
 -- HTML
-vim.lsp.config("html", {})
+vim.lsp.config("html", {
+  capabilities = capabilities,
+})
 vim.lsp.enable("html")
 
 -- CSS
-vim.lsp.config("cssls", {})
+vim.lsp.config("cssls", {
+  capabilities = capabilities,
+})
 vim.lsp.enable("cssls")
 
 -- JSON
-vim.lsp.config("jsonls", {})
+vim.lsp.config("jsonls", {
+  capabilities = capabilities,
+  settings = {
+    json = {
+      validate = { enable = true },
+      schemas = {
+        {
+          fileMatch = { "package.json" },
+          url = "https://json.schemastore.org/package.json",
+        },
+      },
+    },
+  },
+})
 vim.lsp.enable("jsonls")
 
 -- ESLint
-vim.lsp.config("eslint", {})
+vim.lsp.config("eslint", {
+  capabilities = capabilities,
+})
 vim.lsp.enable("eslint")
 
 -- Tailwind CSS
-vim.lsp.config("tailwindcss", {})
+vim.lsp.config("tailwindcss", {
+  capabilities = capabilities,
+})
 vim.lsp.enable("tailwindcss")
 
--- Lua (for Neovim config)
+-- Lua
 vim.lsp.config("lua_ls", {
+  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = {
@@ -85,11 +110,11 @@ vim.lsp.config("lua_ls", {
     },
   },
 })
-
 vim.lsp.enable("lua_ls")
 
 -- Emmet
 vim.lsp.config("emmet_language_server", {
+  capabilities = capabilities,
   filetypes = {
     "html",
     "css",
@@ -98,5 +123,4 @@ vim.lsp.config("emmet_language_server", {
     "typescriptreact",
   },
 })
-
 vim.lsp.enable("emmet_language_server")
