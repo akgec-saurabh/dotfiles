@@ -82,10 +82,10 @@ vim.lsp.config("jsonls", {
 vim.lsp.enable("jsonls")
 
 -- ESLint
-vim.lsp.config("eslint", {
-  capabilities = capabilities,
-})
-vim.lsp.enable("eslint")
+-- vim.lsp.config("eslint", {
+  -- capabilities = capabilities,
+-- })
+-- vim.lsp.enable("eslint")
 
 -- Tailwind CSS
 vim.lsp.config("tailwindcss", {

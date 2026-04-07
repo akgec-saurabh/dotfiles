@@ -1,4 +1,5 @@
 require('plugins.treesitter')
+require('plugins.autotag')
 require('plugins.nvim-tree')
 require('plugins.colorscheme')
 -- require('plugins.lualine')
