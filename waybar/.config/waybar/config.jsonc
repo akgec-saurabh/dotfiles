@@ -1,55 +1,54 @@
 // -*- mode: jsonc -*-
 {
-    "height": 32,
-    "spacing": 0,
-
-    "modules-left": [
-        "hyprland/workspaces"
-    ],
-    "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
-       	"network", 
-	"pulseaudio",
-        "battery",
-        "tray",
-        "custom/power"
-    ],
-
-    "hyprland/workspaces": {
-        "format": "{name}",
-        "on-click": "activate",
-        "sort-by-number": true,
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": []
-        }
+  "height": 32,
+  "spacing": 0,
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "battery",
+    "tray",
+    "custom/power"
+  ],
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "sort-by-number": true,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": []
+    }
+  },
+  "clock": {
+    "format": "{:%a %d %b %H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰅶 muted",
+    "format-icons": {
+      "headphone": "",
+      "headset": "󰂑",
+      "default": [
+        "",
+        "",
+        ""
+      ]
     },
-    "clock": {
-        "format": "{:%H:%M}",
-        "format-alt": "{:%a, %d %b}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>"
-    },
-
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "󰅶 muted",
-        "format-icons": {
-            "headphone": "",
-            "headset": "󰂑",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol",
-        "tooltip": false
-    },
-
-    "network": {
-    "interface": "wlo1",
+    "on-click": "pavucontrol",
+    "tooltip": false
+  },
+  "network": {
+    "interface": "wlan0",
     "format": "{ifname}",
-    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-wifi": "{essid} ",
     "format-ethernet": "{ipaddr}/{cidr} 󰊗",
     "format-disconnected": "", //An empty format will hide the module.
     "tooltip-format": "{ifname} via {gwaddr} 󰊗",
@@ -57,37 +56,59 @@
     "tooltip-format-ethernet": "{ifname} ",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
     },
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰃨 {capacity}%",
-        "format-plugged": " {capacity}%",
-            "format-icons": {
-        "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"]
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰃨 {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-icons": {
+      "default": [
+        "󰂎",
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ],
+      "charging": [
+        "󰢟",
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ]
     },
-        "tooltip": false
-    },
-
-    "tray": {
-        "spacing": 6,
-        "icon-size": 14
-    },
-
-    "custom/power": {
-        "format": "⏻",
-        "tooltip": false,
-        "menu": "on-click",
-        "menu-file": "$HOME/.config/waybar/power_menu.xml",
-        "menu-actions": {
-            "shutdown":  "shutdown now",
-            "reboot":    "reboot",
-            "suspend":   "systemctl suspend",
-            "hibernate": "systemctl hibernate"
-        }
+    "tooltip": false
+  },
+  "tray": {
+    "spacing": 6,
+    "icon-size": 14
+  },
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power_menu.xml",
+    "menu-actions": {
+      "shutdown": "shutdown now",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate"
     }
-   }
+  }
+}

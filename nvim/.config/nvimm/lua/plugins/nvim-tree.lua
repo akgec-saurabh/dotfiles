@@ -3,9 +3,6 @@ vim.pack.add({
   { src = 'https://github.com/nvim-tree/nvim-tree.lua' },
 })
 
-
-
-
   ---@type nvim_tree.config
   local config = {
     sort = {
@@ -20,5 +17,9 @@ vim.pack.add({
     filters = {
       dotfiles = false,
     },
+      git = {
+    ignore = false,
+  },
+
   }
   require("nvim-tree").setup(config)
