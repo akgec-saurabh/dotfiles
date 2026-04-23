@@ -63,3 +63,11 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 vim.g.loaded_netrw = 1       -- disable netrw (using nvim-tree instead)
 vim.g.loaded_netrwPlugin = 1
+
+-- Add these:
+vim.o.conceallevel = 0   -- don't hide quotes in JSON/markdown
+vim.o.laststatus = 3     -- global statusline (one bar for all splits, cleaner)
+
+
+vim.o.cindent = false
+vim.o.smartindent = true

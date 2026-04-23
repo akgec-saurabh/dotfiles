@@ -13,15 +13,9 @@ vim.diagnostic.config({
   severity_sort = true,
   float = { border = 'rounded', source = 'if_many' },
   underline = { severity = { min = vim.diagnostic.severity.WARN } },
-  virtual_text = true,
+  virtual_text = false,
   virtual_lines = false,
   jump = { float = true },
-})
-
--- Remove trailing whitespace on save
-autocmd('BufWritePre', {
-  group = augroup('trim-whitespace', { clear = true }),
-  callback = function() vim.cmd('%s/\\s\\+$//e') end,
 })
 
 -- Restore cursor position when reopening a file
@@ -69,5 +63,18 @@ autocmd({ 'FocusLost', 'BufLeave', 'WinLeave' }, {
     if vim.bo.modified and vim.bo.buftype == '' and vim.fn.expand('%') ~= '' then
       vim.cmd('silent! write')
     end
+  end,
+})
+
+
+-- JSX/TSX specific
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascriptreact", "typescriptreact", "javascript", "typescript" },
+  callback = function()
+    vim.opt_local.indentexpr = ""
+    vim.opt_local.smartindent = true
+    vim.opt_local.expandtab = true
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.tabstop = 2
   end,
 })

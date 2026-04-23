@@ -55,10 +55,10 @@ map('n', '<Right>', '<cmd>vertical resize +2<CR>', { desc = 'Resize right' })
 -- ══════════════════════════════════════
 map('n', '<Tab>', '<cmd>bnext<CR>', { desc = 'Next buffer' })
 map('n', '<S-Tab>', '<cmd>bprevious<CR>', { desc = 'Prev buffer' })
-map('n', '<leader>x', '<cmd>bdelete<CR>', { desc = 'Close buffer' })
-map('n', '<leader>X', '<cmd>bdelete!<CR>', { desc = 'Force close buffer' })
+map('n', '<leader>x', function() require('mini.bufremove').delete() end, { desc = 'Close buffer' })
+map('n', '<leader>X', function() require('mini.bufremove').delete(0, true) end, { desc = 'Force close buffer' })
 map('n', '<leader>ba', '<cmd>%bdelete<CR>', { desc = 'Close all buffers' })
-
+map('n', '<leader><Tab>', '<C-^>', { desc = 'Switch to last buffer' })
 -- ══════════════════════════════════════
 --  FILE TREE
 -- ══════════════════════════════════════
@@ -99,15 +99,49 @@ map('n', '<leader>tt', '<cmd>terminal<CR>', { desc = 'Open terminal' })
 -- ══════════════════════════════════════
 --  REACT / WEB SPECIFIC
 -- ══════════════════════════════════════
--- quickly wrap selection in JSX tag
-map('v', '<leader>jw', 'c<<C-r>"<CR></<C-r>">', { desc = 'Wrap in JSX tag' })
 
 -- console.log word under cursor
-map('n', '<leader>cl', 'yiwoconsole.log(\'<C-r>"\', <C-r>")<Esc>', { desc = 'Console.log word' })
-
+map('n', '<leader>cl', function()
+  local word = vim.fn.expand('<cword>')
+  local line = string.format("console.log('%s', %s)", word, word)
+  vim.api.nvim_put({ line }, 'l', true, true)
+end, { desc = 'Console.log word' })
 
 -- ============================
 -- QUICK
 -- ============================
 
 map("n", "<leader>a", "ggVG")
+
+-- ══════════════════════════════════════
+--  DIAGNOSTICS (more ergonomic)
+-- ══════════════════════════════════════
+map('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Show diagnostic' })
+
+
+-- ══════════════════════════════════════
+--  SEARCH & REPLACE (very useful)
+-- ══════════════════════════════════════
+-- Search and replace word under cursor across file
+map('n', '<leader>sr', ':%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>', { desc = 'Replace word under cursor' })
+
+-- ══════════════════════════════════════
+--  QUICKFIX
+-- ══════════════════════════════════════
+map('n', '<leader>qo', '<cmd>copen<CR>', { desc = 'Open quickfix' })
+map('n', '<leader>qc', '<cmd>cclose<CR>', { desc = 'Close quickfix' })
+map('n', ']q', '<cmd>cnext<CR>', { desc = 'Next quickfix item' })
+map('n', '[q', '<cmd>cprev<CR>', { desc = 'Prev quickfix item' })
+
+-- ══════════════════════════════════════
+--  LAZY/MISC
+-- ══════════════════════════════════════
+-- Open lazy (if you ever switch) or just config
+map('n', '<leader>oc', '<cmd>e ~/.config/nvim/init.lua<CR>', { desc = 'Open config' })
+
+map('n', '<leader>ft', '<cmd>TodoTelescope<CR>', { desc = 'Find TODOs' })
+
+
+map('n', '<leader>gd', '<cmd>DiffviewOpen<CR>',        { desc = 'Git diff' })
+map('n', '<leader>gh', '<cmd>DiffviewFileHistory %<CR>', { desc = 'File git history' })
+map('n', '<leader>gx', '<cmd>DiffviewClose<CR>',       { desc = 'Close diff' })

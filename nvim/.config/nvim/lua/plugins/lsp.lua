@@ -2,6 +2,7 @@ vim.pack.add({
   { src = "https://github.com/neovim/nvim-lspconfig" },
   { src = "https://github.com/williamboman/mason.nvim" },
   { src = "https://github.com/williamboman/mason-lspconfig.nvim" },
+  { src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
 })
 
 require("mason").setup()
@@ -9,7 +10,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = {
     "ts_ls",
-    "eslint",
+    "biome",
     "tailwindcss",
     "cssls",
     "html",
@@ -47,3 +48,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end, "Format File")
   end,
 })
+
+require("tiny-inline-diagnostic").setup()
