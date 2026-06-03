@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # ──────────────────────────────────────────────
 #  screenshot.sh — Hyprland Screenshot Helper
 #  Deps: grim, slurp, wl-copy (wl-clipboard)
@@ -10,7 +10,7 @@
 
 MODE="${1:-region}"
 
-# ── Folders ────────────────────────────────────
+# ── Output folders ─────────────────────────────
 BASE="$HOME/Pictures/Screenshots"
 REGION_DIR="$BASE/Region"
 FULL_DIR="$BASE/Fullscreen"
@@ -26,7 +26,6 @@ notify() {
 }
 
 case "$MODE" in
-
   region)
     FILE="$REGION_DIR/region_${TIMESTAMP}.png"
     GEOM=$(slurp) || exit 1
@@ -34,19 +33,16 @@ case "$MODE" in
     wl-copy < "$FILE"
     notify "$FILE" "Screenshots/Region/region_${TIMESTAMP}.png"
     ;;
-
   full)
     FILE="$FULL_DIR/fullscreen_${TIMESTAMP}.png"
     grim "$FILE"
     wl-copy < "$FILE"
     notify "$FILE" "Screenshots/Fullscreen/fullscreen_${TIMESTAMP}.png"
     ;;
-
   *)
     echo "Usage: $0 {region|full}"
     exit 1
     ;;
-
 esac
 
 echo "Saved → $FILE"
