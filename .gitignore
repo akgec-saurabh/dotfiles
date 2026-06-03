@@ -1,1 +1,8 @@
+# Local/private helper scripts
 hypr/.config/hypr/scripts/camera.sh
+
+# Runtime editor logs
+nvim/.config/nvim/*.log
+
+# Local backup copies
+hypr/.config/hyprr/
