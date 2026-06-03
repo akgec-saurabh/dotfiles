@@ -1,8 +1,5 @@
-# Default config for tofi
-#
-# Copy this file to ~/.config/tofi/config and get customising!
-#
-# A complete reference of available options can be found in `man 5 tofi`.
+# Tofi launcher config.
+# Full option reference: `man 5 tofi`.
 
 #
 ### Fonts
