@@ -1,5 +1,9 @@
+/* Rofi launcher layout.
+ * Color tokens come from Catppuccin; font is kept in fonts.rasi.
+ */
 @import 'catppuccin-default.rasi'
 @import 'fonts.rasi'
+
 element {
     padding: 8px 15px;
     spacing: 10px;
@@ -9,21 +13,19 @@ inputbar {
     padding: 12px 15px;
 }
 
-
 num-filtered-rows { enabled: false; }
 num-rows          { enabled: false; }
 textbox-num-sep   { enabled: false; }
-
 
 listview {
     border: 1px solid 0px 0px;
     border-color: @surface1;
 }
+
 message {
     border: 1px solid 0px 0px;
     border-color: @surface1;
 }
-
 
 window {
     border:        2px solid;

@@ -1,3 +1,4 @@
+/* Catppuccin Mocha color tokens for Rofi. */
 * {
   rosewater: #f5e0dc;
   flamingo: #f2cdcd;
@@ -26,4 +27,3 @@
   mantle: #181825;
   crust: #11111b;
 }
-
