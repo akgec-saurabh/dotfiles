@@ -1,15 +1,19 @@
-# ~/.config/alacritty/alacritty.toml
+# Alacritty terminal config.
+# Font, window, and keybinding settings live here; colors are left to defaults.
 
+# Window chrome and transparency
 [window]
 padding = { x = 0, y = 0 }
 decorations = "None"
 opacity = 0.93
 dynamic_padding = false
 
+# Scrollback
 [scrolling]
 history = 10000
 multiplier = 3
 
+# Font stack
 [font]
 size = 12.0
 builtin_box_drawing = true
@@ -30,20 +34,23 @@ style = "Italic"
 family = "MonoLisa"
 style = "Bold Italic"
 
+# Cursor
 [cursor]
 style = { shape = "Block", blinking = "Never" }
 blink_timeout = 0
 unfocused_hollow = true
 
+# Selection and mouse behavior
 [selection]
 save_to_clipboard = true
 
 [mouse]
 hide_when_typing = true
 
+# Keybindings
 [keyboard]
 bindings = [
-  # New Alacritty window
+  # Window
   { key = "Return", mods = "Control|Shift", action = "CreateNewWindow" },
 
   # Font size
