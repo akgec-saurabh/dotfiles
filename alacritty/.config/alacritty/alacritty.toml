@@ -1,0 +1,53 @@
+# ~/.config/alacritty/alacritty.toml
+
+[window]
+padding = { x = 0, y = 0 }
+decorations = "None"
+opacity = 0.93
+dynamic_padding = false
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+size = 12.0
+builtin_box_drawing = true
+
+[font.normal]
+family = "MonoLisa"
+style = "Regular"
+
+[font.bold]
+family = "MonoLisa"
+style = "Bold"
+
+[font.italic]
+family = "MonoLisa"
+style = "Italic"
+
+[font.bold_italic]
+family = "MonoLisa"
+style = "Bold Italic"
+
+[cursor]
+style = { shape = "Block", blinking = "Never" }
+blink_timeout = 0
+unfocused_hollow = true
+
+[selection]
+save_to_clipboard = true
+
+[mouse]
+hide_when_typing = true
+
+[keyboard]
+bindings = [
+  # New Alacritty window
+  { key = "Return", mods = "Control|Shift", action = "CreateNewWindow" },
+
+  # Font size
+  { key = "Equals", mods = "Control|Shift", action = "IncreaseFontSize" },
+  { key = "Minus", mods = "Control|Shift", action = "DecreaseFontSize" },
+  { key = "Key0", mods = "Control|Shift", action = "ResetFontSize" }
+]
