@@ -11,7 +11,7 @@ require("conform").setup({
     css             = { "biome" },
     json            = { "biome" },
     jsonc           = { "biome" },
-    -- keep prettier only for things biome doesn't handle
+    -- Use Prettier only for filetypes Biome does not handle here.
     html            = { "prettier" },
     markdown        = { "prettier" },
   },

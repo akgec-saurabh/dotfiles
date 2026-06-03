@@ -1,6 +1,6 @@
 vim.pack.add({
-  { src = 'https://github.com/nvim-tree/nvim-web-devicons' }, -- optioinal
-  { src = 'https://github.com/nvim-tree/nvim-tree.lua' },
+  { src = "https://github.com/nvim-tree/nvim-web-devicons" }, -- optional icons
+  { src = "https://github.com/nvim-tree/nvim-tree.lua" },
 })
 
 local config = {

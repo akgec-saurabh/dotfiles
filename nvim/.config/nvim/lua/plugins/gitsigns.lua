@@ -4,6 +4,7 @@ vim.pack.add({
 
 require("gitsigns").setup({
   signs = {
+    -- Use a compact left gutter indicator for changed lines.
     add          = { text = "▎" },
     change       = { text = "▎" },
     delete       = { text = "" },
@@ -16,11 +17,11 @@ require("gitsigns").setup({
       vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
     end
 
-    -- Navigation
+    -- Hunk navigation
     map("n", "]h", gs.next_hunk, "Next hunk")
     map("n", "[h", gs.prev_hunk, "Prev hunk")
 
-    -- Actions
+    -- Hunk actions
     map("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
     map("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
     map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")

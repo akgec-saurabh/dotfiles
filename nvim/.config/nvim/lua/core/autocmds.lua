@@ -1,13 +1,13 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
--- Highlight on yank
+-- Editing feedback
 autocmd('TextYankPost', {
   group = augroup('highlight-yank', { clear = true }),
   callback = function() vim.hl.on_yank() end,
 })
 
--- Diagnostic config
+-- Diagnostics
 vim.diagnostic.config({
   update_in_insert = false,
   severity_sort = true,
@@ -18,7 +18,7 @@ vim.diagnostic.config({
   jump = { float = true },
 })
 
--- Restore cursor position when reopening a file
+-- File/session behavior
 autocmd('BufReadPost', {
   group = augroup('restore-cursor', { clear = true }),
   callback = function()
@@ -30,13 +30,13 @@ autocmd('BufReadPost', {
   end,
 })
 
--- Auto resize splits when window is resized
+-- Layout behavior
 autocmd('VimResized', {
   group = augroup('auto-resize', { clear = true }),
   callback = function() vim.cmd('tabdo wincmd =') end,
 })
 
--- Close these filetypes with just 'q'
+-- Temporary buffers
 autocmd('FileType', {
   group = augroup('quick-close', { clear = true }),
   pattern = { 'help', 'qf', 'notify', 'lspinfo', 'checkhealth' },
@@ -45,18 +45,18 @@ autocmd('FileType', {
   end,
 })
 
--- Set 2-space indent for web filetypes (in case global setting is overridden)
+-- Web indentation
 autocmd('FileType', {
   group = augroup('web-indent', { clear = true }),
   pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'html', 'json' },
   callback = function()
-    vim.o.tabstop = 2
-    vim.o.shiftwidth = 2
-    vim.o.expandtab = true
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true
   end,
 })
 
--- Auto save when leaving buffer/window or losing focus
+-- Autosave
 autocmd({ 'FocusLost', 'BufLeave', 'WinLeave' }, {
   group = augroup('autosave-focus-change', { clear = true }),
   callback = function()
@@ -66,8 +66,7 @@ autocmd({ 'FocusLost', 'BufLeave', 'WinLeave' }, {
   end,
 })
 
-
--- JSX/TSX specific
+-- JSX/TSX indentation
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "javascriptreact", "typescriptreact", "javascript", "typescript" },
   callback = function()

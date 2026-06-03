@@ -65,7 +65,7 @@ cmp.setup({
       name = "nvim_lsp",
       priority = 1000,
       entry_filter = function(entry, _)
-        -- prevent LSP from surfacing snippet-kind items (luasnip handles those)
+        -- Let LuaSnip own snippets instead of showing duplicate LSP snippet items.
         return require("cmp.types").lsp.CompletionItemKind[entry:get_kind()] ~= "Snippet"
       end,
     },
@@ -76,7 +76,7 @@ cmp.setup({
 
   formatting = {
     format = function(entry, vim_item)
-      -- show source name in menu column
+      -- Show the completion source in the menu column.
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         luasnip  = "[Snip]",

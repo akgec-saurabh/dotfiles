@@ -7,6 +7,7 @@ vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.smartindent = true     -- auto indent on new line
+vim.o.cindent = false
 
 -- Search
 vim.o.ignorecase = true
@@ -64,10 +65,6 @@ vim.g.have_nerd_font = true
 vim.g.loaded_netrw = 1       -- disable netrw (using nvim-tree instead)
 vim.g.loaded_netrwPlugin = 1
 
--- Add these:
+-- Conceal and statusline
 vim.o.conceallevel = 0   -- don't hide quotes in JSON/markdown
 vim.o.laststatus = 3     -- global statusline (one bar for all splits, cleaner)
-
-
-vim.o.cindent = false
-vim.o.smartindent = true

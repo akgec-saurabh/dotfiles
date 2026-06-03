@@ -71,5 +71,5 @@ require("catppuccin").setup({
   },
 })
 
--- setup must be called before loading
-vim.cmd.colorscheme "catppuccin-nvim"
+-- Catppuccin must be configured before loading the colorscheme.
+vim.cmd.colorscheme("catppuccin")

@@ -7,6 +7,7 @@ vim.pack.add({
 
 require("mason").setup()
 
+-- Install and enable the language servers used most often in this config.
 require("mason-lspconfig").setup({
   ensure_installed = {
     "ts_ls",
@@ -21,6 +22,7 @@ require("mason-lspconfig").setup({
   automatic_enable = true,
 })
 
+-- Neovim's Lua runtime exposes `vim` as a global.
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
@@ -31,6 +33,7 @@ vim.lsp.config("lua_ls", {
   },
 })
 
+-- Buffer-local LSP keymaps.
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(event)
     local map = function(keys, func, desc)
@@ -44,6 +47,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("<leader>rn", vim.lsp.buf.rename, "Rename")
     map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
     map("<leader>gf", function()
+      -- Prefer Conform when loaded, but keep native LSP formatting as fallback.
       local ok, conform = pcall(require, "conform")
       if ok then
         conform.format({ async = true, lsp_fallback = true })
@@ -54,4 +58,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+-- Inline diagnostics keep warnings visible without virtual text noise.
 require("tiny-inline-diagnostic").setup()
