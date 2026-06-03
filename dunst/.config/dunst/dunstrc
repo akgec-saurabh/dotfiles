@@ -1,16 +1,22 @@
+# Dunst notification theme.
+# Catppuccin Mocha base with blue normal borders and peach critical borders.
+
 [global]
 frame_color = "#89b4fa"
-separator_color= frame
+separator_color = frame
 highlight = "#89b4fa"
 
+# Low-priority notifications
 [urgency_low]
 background = "#1e1e2e"
 foreground = "#cdd6f4"
 
+# Normal notifications
 [urgency_normal]
 background = "#1e1e2e"
 foreground = "#cdd6f4"
 
+# Critical notifications
 [urgency_critical]
 background = "#1e1e2e"
 foreground = "#cdd6f4"
