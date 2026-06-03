@@ -3,9 +3,6 @@ vim.pack.add({
   { src = 'https://github.com/nvim-tree/nvim-tree.lua' },
 })
 
-
-
-
 local config = {
   sort = {
     sorter = "case_sensitive",
@@ -17,7 +14,11 @@ local config = {
     group_empty = true,
   },
   filters = {
-    dotfiles = false,
+    dotfiles = true,
+  },
+  git = {
+    ignore = true,
   },
 }
+
 require("nvim-tree").setup(config)
