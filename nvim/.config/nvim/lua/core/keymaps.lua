@@ -11,6 +11,7 @@ map('n', '<Esc>', '<cmd>nohlsearch<CR>') -- clear search highlight
 map('n', '<C-s>', '<cmd>w<CR>', { desc = 'Save' })
 map('i', '<C-s>', '<Esc><cmd>w<CR>', { desc = 'Save from insert' })
 map('n', '<C-z>', '<cmd>undo<CR>', { desc = 'Undo' })
+map('n', '<leader>tw', '<cmd>set wrap!<CR>', { desc = 'Toggle line wrap' })
 
 -- better paste (don't overwrite register when pasting over selection)
 map('x', 'p', '"_dP', { desc = 'Paste without yanking' })
